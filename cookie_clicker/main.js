@@ -16914,4 +16914,6 @@ window.onload=function()
 		else if (!lang) {loadLangAndLaunch('EN',true);}
 		else loadLangAndLaunch(lang);
 	}
+	// MODS
+	Game.LoadMod('mods/AutoCookie.js');
 };
