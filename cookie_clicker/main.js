@@ -16915,5 +16915,8 @@ window.onload=function()
 		else loadLangAndLaunch(lang);
 	}
 	// MODS
-	Game.LoadMod('mods/AutoCookie.js');
+	Game.LoadMod('localmods/AutoCookie.js');
+	// MODS USING CCSE.js
+	Game.LoadMod('localmods/ccse/CCSE.js');
+	Game.LoadMod('localmods/timerwidget/TimerWidget.js');
 };
