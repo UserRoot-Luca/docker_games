@@ -16916,7 +16916,9 @@ window.onload=function()
 	}
 	// MODS
 	Game.LoadMod('localmods/AutoCookie.js');
+	Game.LoadMod('localmods/CookieStonks.js');
 	// MODS USING CCSE.js
 	Game.LoadMod('localmods/ccse/CCSE.js');
 	Game.LoadMod('localmods/timerwidget/TimerWidget.js');
+	Game.LoadMod('localmods/IdleTrading.js');
 };
