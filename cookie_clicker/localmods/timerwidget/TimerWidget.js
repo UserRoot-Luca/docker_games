@@ -1,6 +1,6 @@
 if(TimerWidget === undefined) var TimerWidget = {};
 // if(typeof CCSE == 'undefined') Game.LoadMod('https://klattmose.github.io/CookieClicker/' + (0 ? 'Beta/' : '') + 'CCSE.js');
-if(typeof CCSE == 'undefined') alert("ERROR: Missing CCSE.js")
+if(typeof CCSE == 'undefined') console.error("ERROR: Missing CCSE.js");
 TimerWidget.name = 'Timer Widget';
 TimerWidget.pic = 'localmods/timerwidget/timer.png';
 TimerWidget.version = '1.8';
