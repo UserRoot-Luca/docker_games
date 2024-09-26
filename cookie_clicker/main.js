@@ -16921,4 +16921,5 @@ window.onload=function()
 	Game.LoadMod('localmods/ccse/CCSE.js');
 	Game.LoadMod('localmods/timerwidget/TimerWidget.js');
 	Game.LoadMod('localmods/IdleTrading.js');
+	Game.LoadMod('localmods/Horticookie.js');
 };
