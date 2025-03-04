@@ -18,3 +18,8 @@ Added the following mods
 
 ## Hextris-Lite
 - https://github.com/attogram/hextris-lite
+
+## COMMANDS
+```docker
+docker build -t <name-image>:latest . && docker run -d -p 80:80 --name "<name-container>" <name-image>:latest
+```
