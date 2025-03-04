@@ -15,3 +15,6 @@ Added the following mods
 
 ## 2048
 - https://github.com/gabrielecirulli/2048
+
+## Hextris-Lite
+- https://github.com/attogram/hextris-lite
