@@ -22,6 +22,9 @@ Added the following mods
 ## Rich East Tetris
 - https://codepen.io/REast/pen/bGMyqP
 
+## Codrin Pavel Flipcard Memory Game
+- https://codepen.io/zerospree/pen/bNWbvW
+
 ## COMMANDS
 ```docker
 docker build -t <name-image>:latest . && docker run -d -p 80:80 --name "<name-container>" <name-image>:latest
