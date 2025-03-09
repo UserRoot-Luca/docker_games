@@ -25,6 +25,9 @@ Added the following mods
 ## Codrin Pavel Flipcard Memory Game
 - https://codepen.io/zerospree/pen/bNWbvW
 
+## Jack Rugile Snake Game
+- https://codepen.io/jackrugile/pen/bGRWbK
+
 ## COMMANDS
 ```docker
 docker build -t <name-image>:latest . && docker run -d -p 80:80 --name "<name-container>" <name-image>:latest
