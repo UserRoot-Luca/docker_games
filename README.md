@@ -28,6 +28,11 @@ Added the following mods
 ## Jack Rugile Snake Game
 - https://codepen.io/jackrugile/pen/bGRWbK
 
+## Minesweeper
+A mix of two different repositories
+- https://github.com/artyyouth/minesweeper
+- https://github.com/nickarocho/minesweeper
+
 ## COMMANDS
 ```docker
 docker build -t <name-image>:latest . && docker run -d -p 80:80 --name "<name-container>" <name-image>:latest

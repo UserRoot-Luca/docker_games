@@ -1,0 +1,85 @@
+<!--
+	Main: https://github.com/artyyouth/minesweeper
+	https://github.com/nickarocho/minesweeper
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Minesweeper</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="./src/css/Mine.Style.css" type="text/css" media="all"/>
+		<link rel="stylesheet" href="./src/fonts/Open_Sans/Open_Sans.css">
+	</head>
+	<body>
+		<form class="form_config" name="frmConfig">
+			<table>
+				<tr>
+					<td colspan="2">Please Config The Game</td>
+				</tr>
+				<tr>
+					<td class="form_text">Rows</td>
+					<td><input class="form_input" type="number" name="row_count" value="8" min="0"/></td>
+				</tr>
+				<tr>
+					<td class="form_text">Columns</td>
+					<td><input class="form_input" type="number" name="col_count" value="8" min="0"/></td>
+				</tr>
+				<tr>
+					<td class="form_text">Mines</td>
+					<td><input class="form_input" type="number" name="mine_num" value="10" min="0"/></td>
+				</tr>
+				<tr>
+					<td><input class="button_form" type="button" value="Start" onclick="return CheckConfigAndStart();" /></td>
+					<td><input class="button_form" type="reset" value="Clear" /></td>
+				</tr>
+			</table>
+		</form>
+		<div class="descriptions">
+			<p></p>
+			<table>
+				<tr>
+					<th colspan="2">ICON DESCRIPTIONS</th>
+				</tr>
+				<tr>
+					<td><img src="./src/img/smile.gif" border="0"></td>
+					<td>Take it easy and play carefully!</td>
+				</tr>
+				<tr>
+					<td><img src="./src/img/win.gif" border="0"></td>
+					<td>You win! Awesome!</td>
+				</tr>
+				<tr>
+					<td><img src="./src/img/blast.gif" border="0"></td>
+					<td>You lose...</td>
+				</tr>
+				<tr>
+					<td><img src="./src/img/error.gif" border="0"></td>
+					<td>You have tagged a wrong place.</td>
+				</tr>
+				<tr>
+					<td><img src="./src/img/flag.gif" border="0"></td>
+					<td>There is a mine here.</td>
+				</tr>
+				<tr>
+					<td><img src="./src/img/bomb.gif" border="0"></td>
+					<td>This is a dangerous mine!</td>
+				</tr>
+			</table>
+		</div>
+
+		<div id="playground"></div>
+
+		<div id="footer">
+            <div id="size_btns">
+                <div id="size_btns"><button onclick="location.reload()">Restart!</button></div>
+                <div id="size_btns"><button id="size_9">Easy</button></div>
+                <div id="size_btns"><button id="size_16">Medium</button></div>
+                <div id="size_btns"><button id="size_30">Hard</button></div>
+            </div>
+            <div id="size_text">&copy;2012 vincentchen.me All Right Reserved.</div>
+        </div>
+		<script language="JavaScript" type="text/javascript" src="./src/js/Mine.Code.js"></script>
+	</body>
+</html>
