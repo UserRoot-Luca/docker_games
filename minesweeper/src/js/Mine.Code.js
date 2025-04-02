@@ -13,6 +13,7 @@ var is_begin = false;	//is game started?
 var is_end = false;	//is game ended?
 var is_first_click = false; //is first block opened
 var oMainFrame;	//game main frame
+var inf_time = false;
 
 //initialize the mine area
 function InitMineArea(row,col,mine_num,mine_index){
@@ -515,7 +516,9 @@ function MineButton(mine_value,mine_index){
 			if(event.button === 2)
 			{
 				//start timer
-				BeginTimer();
+				if (!inf_time) {
+					BeginTimer();
+				}
 
 				//check whether it is expanded
 				expanded = this.getAttribute("expanded");
@@ -815,7 +818,9 @@ function MineButton(mine_value,mine_index){
 				}
 			}
 			
-			BeginTimer();
+			if (!inf_time) {
+				BeginTimer();
+			}
 
 			if(this.getAttribute("marked") === K_TRUE || this.getAttribute("expanded") === K_TRUE) 
 				return false;
@@ -1022,6 +1027,7 @@ function CheckConfigAndStart() {
 	var row = Math.abs(document.frmConfig.row_count.value);
 	var col = Math.abs(document.frmConfig.col_count.value);
 	var num = Math.abs(document.frmConfig.mine_num.value);
+	inf_time = document.frmConfig.inf_time_input.checked;
 	if(row > 50) {
 		alert("Too many rows!");
 		document.frmConfig.row_count.value = "50";
