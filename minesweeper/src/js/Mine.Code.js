@@ -14,6 +14,7 @@ var is_end = false;	//is game ended?
 var is_first_click = false; //is first block opened
 var oMainFrame;	//game main frame
 var inf_time = false;
+var switch_over = false;
 
 //initialize the mine area
 function InitMineArea(row,col,mine_num,mine_index){
@@ -474,7 +475,200 @@ function MineButton(mine_value,mine_index){
 	oMine.style.height = "18px";
 	oMine.setAttribute("mine_value",mine_value);
 	oMine.setAttribute("mine_index",mine_index);
+
+	if (switch_over) {
+		let border_c = "";
+		let border_r = "", border_l = "";
+		let border_t = "", border_b = "";
+		let border_tr = "", border_tl = "";
+		let border_br = "", border_bl = "";
+		
+		let bg_r = "", bg_l = "";
+		let bg_t = "", bg_b = "";
+		let bg_tr = "", bg_tl = "";
+		let bg_br = "", bg_bl = "";
+
+		let over_start = false, over_end = false;
+		let mine_id;
+		let mine_c;
+		let mine_r, mine_l;
+		let mine_t, mine_b; 
+		let mine_tr, mine_tl;
+		let mine_br, mine_bl;
+
+		oMine.addEventListener("mouseenter", function(e){
+			if (e.target.getAttribute("class").split("_").length > 2) {
+				mine_id = parseInt(e.target.getAttribute("id").split("_")[1]);
+				mine_c = document.getElementById("mine_" + mine_id);
+				mine_r = document.getElementById("mine_" + (mine_id - 1));
+				mine_l = document.getElementById("mine_" + (mine_id + 1));
+				mine_t = document.getElementById("mine_" + (mine_id - row_count));
+				mine_b = document.getElementById("mine_" + (mine_id + row_count));
+				mine_tr = document.getElementById("mine_" + (mine_id - row_count - 1));
+				mine_tl = document.getElementById("mine_" + (mine_id - row_count + 1));
+				mine_br = document.getElementById("mine_" + (mine_id + row_count - 1));
+				mine_bl = document.getElementById("mine_" + (mine_id + row_count + 1));
 	
+				let start_row = 0;
+				let end_row = row_count-1;
+				over_start = false;
+				over_end = false;
+	
+				for (let i = 0; i < row_count; i++) {
+					if (start_row == mine_id) {
+						over_start = true;
+						break;
+					}
+					if (end_row == mine_id) {
+						over_end = true;
+						break;
+					}
+					start_row += row_count;
+					end_row += row_count;
+				}
+				
+				if (mine_c != null) {
+					border_c = mine_r.style.border;
+					mine_c.style.border = "2px solid #df0303";
+				}
+				if (mine_r != null && !over_start) {
+					if (mine_r.getAttribute("class") == "mine_up") {
+						bg_r = mine_r.style.background;
+						mine_r.style.background = "#df0303";
+					} else {
+						border_r = mine_r.style.border;
+						mine_r.style.border = "2px solid #df0303";
+					}
+				}
+				if (mine_l != null && !over_end) {
+					if (mine_l.getAttribute("class") == "mine_up") {
+						bg_l = mine_l.style.background;
+						mine_l.style.background = "#df0303";
+					} else {
+						border_l = mine_l.style.border;
+						mine_l.style.border = "2px solid #df0303";
+					}
+				}
+				if (mine_t != null) {
+					if (mine_t.getAttribute("class") == "mine_up") {
+						bg_t = mine_t.style.background;
+						mine_t.style.background = "#df0303";
+					} else {
+						border_t = mine_t.style.border;
+						mine_t.style.border = "2px solid #df0303";
+					}
+				}
+				if (mine_b != null) {
+					if (mine_b.getAttribute("class") == "mine_up") {
+						bg_b = mine_b.style.background;
+						mine_b.style.background = "#df0303";
+					} else {
+						border_b = mine_b.style.border;
+						mine_b.style.border = "2px solid #df0303";
+					}
+				}
+				if (mine_tr != null && !over_start) {
+					if (mine_tr.getAttribute("class") == "mine_up") {
+						bg_tr = mine_tr.style.background;
+						mine_tr.style.background = "#df0303";
+					} else {
+						border_tr = mine_tr.style.border;
+						mine_tr.style.border = "2px solid #df0303";
+					}
+				}
+				if (mine_tl != null && !over_end) {
+					if (mine_tl.getAttribute("class") == "mine_up") {
+						bg_tl = mine_tl.style.background;
+						mine_tl.style.background = "#df0303";
+					} else {
+						border_tl = mine_tl.style.border;
+						mine_tl.style.border = "2px solid #df0303";
+					}
+				}
+				if (mine_br != null && !over_start) {
+					if (mine_br.getAttribute("class") == "mine_up") {
+						bg_br = mine_br.style.background;
+						mine_br.style.background = "#df0303";
+					} else {
+						border_br = mine_br.style.border;
+						mine_br.style.border = "2px solid #df0303";
+					}
+				}
+				if (mine_bl != null && !over_end) {
+					if (mine_bl.getAttribute("class") == "mine_up") {
+						bg_bl = mine_bl.style.background;
+						mine_bl.style.background = "#df0303";
+					} else {
+						border_bl = mine_bl.style.border;
+						mine_bl.style.border = "2px solid #df0303";
+					}
+				}
+			}
+		});
+	
+		oMine.addEventListener("mouseleave", function(e){
+			if (mine_c != null) {
+				mine_c.style.border = border_c;
+			}
+			if (mine_r != null && !over_start) {
+				if (mine_r.getAttribute("class") == "mine_up") {
+					mine_r.style.background = bg_r;
+				} else {
+					mine_r.style.border = border_r;
+				}
+			}
+			if (mine_l != null && !over_end) {
+				if (mine_l.getAttribute("class") == "mine_up") {
+					mine_l.style.background = bg_l;
+				} else {
+					mine_l.style.border = border_l;
+				}
+			}
+			if (mine_t != null) {
+				if (mine_t.getAttribute("class") == "mine_up") {
+					mine_t.style.background = bg_t;
+				} else {
+					mine_t.style.border = border_t;
+				}
+			}
+			if (mine_b != null) {
+				if (mine_b.getAttribute("class") == "mine_up") {
+					mine_b.style.background = bg_b;
+				} else {
+					mine_b.style.border = border_b;
+				}
+			}
+			if (mine_tr != null && !over_start) {
+				if (mine_tr.getAttribute("class") == "mine_up") {
+					mine_tr.style.background = bg_tr;
+				} else {
+					mine_tr.style.border = border_tr;
+				}
+			}
+			if (mine_tl != null && !over_end) {
+				if (mine_tl.getAttribute("class") == "mine_up") {
+					mine_tl.style.background = bg_tl;
+				} else {
+					mine_tl.style.border = border_tl;
+				}
+			}
+			if (mine_br != null && !over_start) {
+				if (mine_br.getAttribute("class") == "mine_up") {
+					mine_br.style.background = bg_br;
+				} else {
+					mine_br.style.border = border_br;
+				}
+			}
+			if (mine_bl != null && !over_end) {
+				if (mine_bl.getAttribute("class") == "mine_up") {
+					mine_bl.style.background = bg_bl;
+				} else {
+					mine_bl.style.border = border_bl;
+				}
+			}
+		});
+	}
+
 	//set wether it is marked as a mine
 	oMine.setAttribute("marked",false);
 	
@@ -1028,6 +1222,7 @@ function CheckConfigAndStart() {
 	var col = Math.abs(document.frmConfig.col_count.value);
 	var num = Math.abs(document.frmConfig.mine_num.value);
 	inf_time = document.frmConfig.inf_time_input.checked;
+	switch_over = document.frmConfig.switch_over_input.checked;
 	if(row > 50) {
 		alert("Too many rows!");
 		document.frmConfig.row_count.value = "50";
@@ -1065,6 +1260,8 @@ function CheckConfigAndStart() {
 }
 
 document.querySelector('#size_9').addEventListener("click", () => {
+	inf_time = false;
+	switch_over = false;
 	document.getElementById("playground").innerHTML = '';
 	document.frmConfig.style.display = 'none';
 	document.querySelector(".descriptions").style.display = 'none';
@@ -1072,6 +1269,8 @@ document.querySelector('#size_9').addEventListener("click", () => {
 })
 
 document.querySelector('#size_16').addEventListener("click", () => {
+	inf_time = false;
+	switch_over = false;
 	document.getElementById("playground").innerHTML = '';
 	document.frmConfig.style.display = 'none';
 	document.querySelector(".descriptions").style.display = 'none';
@@ -1079,6 +1278,8 @@ document.querySelector('#size_16').addEventListener("click", () => {
 })
 
 document.querySelector('#size_30').addEventListener("click", () => {
+	inf_time = false;
+	switch_over = false;
 	document.getElementById("playground").innerHTML = '';
 	document.frmConfig.style.display = 'none';
 	document.querySelector(".descriptions").style.display = 'none';
