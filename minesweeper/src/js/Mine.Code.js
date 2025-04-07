@@ -502,33 +502,49 @@ function MineButton(mine_value,mine_index){
 				mine_c = document.getElementById("mine_" + mine_id);
 				mine_r = document.getElementById("mine_" + (mine_id - 1));
 				mine_l = document.getElementById("mine_" + (mine_id + 1));
-				mine_t = document.getElementById("mine_" + (mine_id - row_count));
-				mine_b = document.getElementById("mine_" + (mine_id + row_count));
-				mine_tr = document.getElementById("mine_" + (mine_id - row_count - 1));
-				mine_tl = document.getElementById("mine_" + (mine_id - row_count + 1));
-				mine_br = document.getElementById("mine_" + (mine_id + row_count - 1));
-				mine_bl = document.getElementById("mine_" + (mine_id + row_count + 1));
+				mine_t = document.getElementById("mine_" + (mine_id - col_count));
+				mine_b = document.getElementById("mine_" + (mine_id + col_count));
+				mine_tr = document.getElementById("mine_" + (mine_id - col_count - 1));
+				mine_tl = document.getElementById("mine_" + (mine_id - col_count + 1));
+				mine_br = document.getElementById("mine_" + (mine_id + col_count - 1));
+				mine_bl = document.getElementById("mine_" + (mine_id + col_count + 1));
 	
-				let start_row = 0;
-				let end_row = row_count-1;
+
 				over_start = false;
 				over_end = false;
-	
-				for (let i = 0; i < row_count; i++) {
-					if (start_row == mine_id) {
-						over_start = true;
-						break;
+				let start_row = 0;
+				let end_row = col_count-1;
+
+				if (row_count > col_count) {
+					for (let i = 0; i < row_count; i++) {
+						if (start_row == mine_id) {
+							over_start = true;
+							break;
+						}
+						if (end_row == mine_id) {
+							over_end = true;
+							break;
+						}
+						start_row += col_count;
+						end_row += col_count;						
 					}
-					if (end_row == mine_id) {
-						over_end = true;
-						break;
+				} else {
+					for (let i = 0; i < col_count; i++) {
+						if (start_row == mine_id) {
+							over_start = true;
+							break;
+						}
+						if (end_row == mine_id) {
+							over_end = true;
+							break;
+						}
+						start_row += col_count;
+						end_row += col_count;
 					}
-					start_row += row_count;
-					end_row += row_count;
 				}
-				
+
 				if (mine_c != null) {
-					border_c = mine_r.style.border;
+					border_c = mine_c.style.border;
 					mine_c.style.border = "2px solid #df0303";
 				}
 				if (mine_r != null && !over_start) {
