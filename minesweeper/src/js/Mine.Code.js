@@ -1266,6 +1266,7 @@ document.querySelector('#size_9').addEventListener("click", () => {
 	document.frmConfig.style.display = 'none';
 	document.querySelector(".descriptions").style.display = 'none';
 	startMinesweeper(9, 9, 10);
+	RefreshMainFrame();
 })
 
 document.querySelector('#size_16').addEventListener("click", () => {
@@ -1275,6 +1276,7 @@ document.querySelector('#size_16').addEventListener("click", () => {
 	document.frmConfig.style.display = 'none';
 	document.querySelector(".descriptions").style.display = 'none';
 	startMinesweeper(16, 16, 40);
+	RefreshMainFrame();
 })
 
 document.querySelector('#size_30').addEventListener("click", () => {
@@ -1284,5 +1286,6 @@ document.querySelector('#size_30').addEventListener("click", () => {
 	document.frmConfig.style.display = 'none';
 	document.querySelector(".descriptions").style.display = 'none';
 	startMinesweeper(30, 30, 160);
+	RefreshMainFrame();
 })
 
