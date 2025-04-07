@@ -258,9 +258,9 @@ html, body{
 	border-right: 2px solid white;
 	float: left;
 	background: black;
-	color: red;
-	font-weight: bold;
-	font-size: 15pt;
+	color: #ff0000;
+	font-weight: normal;
+	font-size: 15.8pt;
 	font-family: 'haettenschweiler';
 }
 
@@ -275,9 +275,9 @@ html, body{
 	border-right: 2px solid white;
 	float: right;
 	background: black;
-	color: red;
-	font-weight: bold;
-	font-size: 15pt;
+	color: #ff0000;
+	font-weight: normal;
+	font-size: 15.8pt;
 	font-family: 'haettenschweiler';
 }
 
