@@ -1,5 +1,6 @@
-FROM php:8.0-apache
+FROM php:php:fpm-alpine
 
+WORKDIR /var/www/html
 COPY . /var/www/html
 RUN chmod -R +rx /var/www/html
 
