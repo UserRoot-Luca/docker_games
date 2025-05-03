@@ -36,9 +36,6 @@ A mix of two different repositories
 ## T-Rex Runner
 - https://github.com/wayou/t-rex-runner
 
-## Patience
-- https://github.com/ccprog/bu-patience
-
 ## COMMANDS
 ```docker
 docker build -t <name-image>:latest . && docker run -d -p 80:80 --name "<name-container>" <name-image>:latest
