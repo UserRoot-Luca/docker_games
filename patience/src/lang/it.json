@@ -1,0 +1,12 @@
+{
+    "prev": { "target": "title", "text": "Annulla" },
+    "next": { "target": "title", "text": "Ripristino" },
+    "help": { "target": "title", "text": "Regole (propria finestra)" },
+    "newgame": { "target": "title", "text": "Nuovo gioco" },
+    "language": { "target": "title", "text": "Lingua" },
+    "remaining": { "target": "text", "text": "Coda:" },
+    "moves": { "target": "text", "text": "Mosse:" },
+    "points": { "target": "text", "text": "Punteggio:" },
+    "time": { "target": "text", "text": "Tempo:" }
+  }
+  
