@@ -39,6 +39,9 @@ A mix of two different repositories
 ## Patience
 - https://github.com/ccprog/bu-patience
 
+## Sudoku
+- https://github.com/huaminghuangtw/Web-Sudoku-Puzzle-Game
+
 ## COMMANDS
 ```docker
 docker build -t <name-image>:latest . && docker run -d -p 80:80 --name "<name-container>" <name-image>:latest
